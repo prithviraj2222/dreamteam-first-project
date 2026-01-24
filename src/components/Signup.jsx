@@ -75,7 +75,7 @@ function Signup() {
     }
   };
 
-  const verifyOtp = async () => {
+  const verifyOtp = async (e) => {
     if (!email) {
       setOtpMsg("Please enter email first");
       return;
@@ -99,7 +99,7 @@ function Signup() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen my-16">
+    <div className="flex justify-center mt-10">
       <form
         onSubmit={handleSubmit}
         className="bg-gray-100 text-center flex flex-col items-start p-2 rounded-2xl w-[30%]"
