@@ -26,7 +26,7 @@ function Navbar() {
           Master
         </button>
         {masterOpen && (
-          <div className="absolute w-35 flex flex-col p-2 left-20 top-15 rounded-md mt-2 bg-white text-black shadow-lg text-lg">
+          <div className="absolute z-10 w-35 flex flex-col p-2 left-20 top-15 rounded-md mt-2 bg-white text-black shadow-lg text-lg">
             <Link
               className="p-2 ml-2"
               onClick={() => setMasterOpen(false)}
@@ -66,7 +66,7 @@ function Navbar() {
           Reports
         </button>
         {reportsOpen && (
-          <div className="absolute w-35 flex flex-col p-2 left-40 top-15 rounded-md mt-2 bg-white text-black shadow-lg text-lg">
+          <div className="absolute z-10 w-35 flex flex-col p-2 left-40 top-15 rounded-md mt-2 bg-white text-black shadow-lg text-lg">
             <Link
               className="p-2 ml-2"
               onClick={() => setReportsOpen(false)}
