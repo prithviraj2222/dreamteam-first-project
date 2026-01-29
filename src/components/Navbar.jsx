@@ -55,6 +55,13 @@ function Navbar() {
             >
               Users
             </Link>
+            <Link
+              className="p-2 ml-2"
+              onClick={() => setMasterOpen(false)}
+              to="/events"
+            >
+              Events
+            </Link>
           </div>
         )}
         <button

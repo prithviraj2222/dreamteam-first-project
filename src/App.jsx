@@ -23,6 +23,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ForgotPass from "./components/ForgotPass";
 import AdminDashboard from "./components/AdminDashboard";
 import FilteredUsers from "./components/FilteredUsers";
+import Events from "./components/Events";
 
 function App() {
   return (
@@ -82,6 +83,14 @@ function App() {
               element={
                 <ProtectedRoute role="admin">
                   <FilteredUsers />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/events"
+              element={
+                <ProtectedRoute role="admin">
+                  <Events />
                 </ProtectedRoute>
               }
             />
