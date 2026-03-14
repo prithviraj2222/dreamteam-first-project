@@ -23,10 +23,10 @@ function Country() {
   const totalPages = Math.ceil(country.length / itemsPerPage);
 
   const fetchData = async () => {
-    let data = await axios.get("http://localhost:3000/country");
+    let data = await axios.get("https://dreamteam-first-project-backend.onrender.com/country");
     setCountry(data.data.filter((d) => d.removed === "N"));
 
-    let statesData = await axios.get("http://localhost:3000/states");
+    let statesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/states");
     // setStates(statesData.data.filter((d) => d.removed === "N"));
     setStates(statesData.data.map((state) => state.country_id));
   };
@@ -36,7 +36,7 @@ function Country() {
       setCountry((prev) => prev.filter((d) => d.id !== data.id));
 
       try {
-        await axios.patch(`http://localhost:3000/country/${data.id}`);
+        await axios.patch(`https://dreamteam-first-project-backend.onrender.com/country/${data.id}`);
         setSearchVal("");
       } catch (error) {
         console.log(error);
@@ -53,7 +53,7 @@ function Country() {
       });
 
       try {
-        await axios.patch(`http://localhost:3000/countries`, {
+        await axios.patch(`https://dreamteam-first-project-backend.onrender.com/countries`, {
           selectedCountries,
         });
 
@@ -67,7 +67,7 @@ function Country() {
 
   const search = async () => {
     try {
-      const result = await axios.get("http://localhost:3000/country/search", {
+      const result = await axios.get("https://dreamteam-first-project-backend.onrender.com/country/search", {
         params: {
           name: searchVal,
         },

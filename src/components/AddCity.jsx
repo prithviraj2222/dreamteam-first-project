@@ -14,11 +14,11 @@ function AddCity() {
   const navigate = useNavigate();
 
   const fetchData = async () => {
-    let citiesData = await axios.get("http://localhost:3000/cities");
+    let citiesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/cities");  // http://localhost:3000
     setCities(citiesData.data);
-    let statesData = await axios.get("http://localhost:3000/states");
+    let statesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/states");
     setStates(statesData.data.filter((d) => d.removed === "N"));
-    let data = await axios.get("http://localhost:3000/country");
+    let data = await axios.get("https://dreamteam-first-project-backend.onrender.com/country");
     setCountry(data.data.filter((d) => d.removed === "N"));
   };
 
@@ -37,7 +37,7 @@ function AddCity() {
         alert("City Already Exitst !");
       } else {
         try {
-          await axios.post("http://localhost:3000/city", { stateId, cityName });
+          await axios.post("https://dreamteam-first-project-backend.onrender.com/city", { stateId, cityName });
           navigate("/cities");
         } catch (error) {
           console.log(error);

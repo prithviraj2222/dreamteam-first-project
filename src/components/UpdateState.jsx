@@ -13,13 +13,13 @@ function UpdateState() {
   const navigate = useNavigate();
 
   const fetchData = async () => {
-    let countriesData = await axios.get("http://localhost:3000/country");
+    let countriesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/country");
     setCountries(countriesData.data.filter((d) => d.removed === "N"));
-    let data = await axios.get(`http://localhost:3000/state/${id}`);
+    let data = await axios.get(`https://dreamteam-first-project-backend.onrender.com/state/${id}`);
     data = data.data[0];
     setState(data);
     setSelect(data.country_id);
-    let statesData = await axios.get("http://localhost:3000/states");
+    let statesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/states");
     setStates(statesData.data);
   };
 
@@ -37,7 +37,7 @@ function UpdateState() {
         alert("State Already Exitst !");
       } else {
         try {
-          await axios.put(`http://localhost:3000/state/${id}`, {
+          await axios.put(`https://dreamteam-first-project-backend.onrender.com/state/${id}`, {
             state,
             select,
           });

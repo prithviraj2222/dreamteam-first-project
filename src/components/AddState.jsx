@@ -9,9 +9,9 @@ function AddState() {
   const [states, setStates] = useState([]);
 
   const fetchData = async () => {
-    let countriesData = await axios.get("http://localhost:3000/country");
+    let countriesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/country"); // http://localhost:3000
     setCountries(countriesData.data.filter((d) => d.removed === "N"));
-    let statesData = await axios.get("http://localhost:3000/states");
+    let statesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/states");
     setStates(statesData.data);
   };
 
@@ -22,7 +22,7 @@ function AddState() {
 
     if (!states.some((state) => state.name === stateName.trim())) {
       try {
-        await axios.post("http://localhost:3000/state", { countryId, stateName });
+        await axios.post("https://dreamteam-first-project-backend.onrender.com/state", { countryId, stateName });
         navigate("/states");
       } catch (error) {
         console.log(error);

@@ -10,14 +10,14 @@ function updateCountry() {
   const navigate = useNavigate();
 
   const fetchData = async () => {
-    let data = await axios.get(`http://localhost:3000/country/${id}`);
+    let data = await axios.get(`https://dreamteam-first-project-backend.onrender.com/country/${id}`);
     setCountry(data.data[0]);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (window.confirm("Are you sure you want to upadate country name")) {
       try {
-        await axios.put(`http://localhost:3000/country/${id}`, country);
+        await axios.put(`https://dreamteam-first-project-backend.onrender.com/country/${id}`, country);
         navigate("/country");
       } catch (error) {
         console.log(error);

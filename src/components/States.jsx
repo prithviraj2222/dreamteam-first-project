@@ -24,11 +24,11 @@ function States() {
   const totalPages = Math.ceil(states.length / itemsPerPage);
 
   const fetchData = async () => {
-    let statesData = await axios.get("http://localhost:3000/states");
+    let statesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/states");
     setStates(statesData.data.filter((d) => d.removed === "N"));
-    let countriesData = await axios.get("http://localhost:3000/country");
+    let countriesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/country");
     setCountry(countriesData.data.filter((d) => d.removed === "N"));
-    let citiesData = await axios.get("http://localhost:3000/cities");
+    let citiesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/cities");
     setCities(citiesData.data.map((city) => city.state_id));
   };
 
@@ -37,7 +37,7 @@ function States() {
       setStates((prev) => prev.filter((d) => d.id !== data.id));
 
       try {
-        await axios.patch(`http://localhost:3000/state/${data.id}`);
+        await axios.patch(`https://dreamteam-first-project-backend.onrender.com/state/${data.id}`);
         setSearchVal("");
       } catch (error) {
         console.log(error);
@@ -59,7 +59,7 @@ function States() {
       });
 
       try {
-        await axios.patch(`http://localhost:3000/states`, { selectedStates });
+        await axios.patch(`https://dreamteam-first-project-backend.onrender.com/states`, { selectedStates });
         setSelectedStates([]);
         setSearchVal("");
       } catch (error) {
@@ -70,7 +70,7 @@ function States() {
 
   const search = async () => {
     try {
-      const result = await axios.get("http://localhost:3000/state/search", {
+      const result = await axios.get("https://dreamteam-first-project-backend.onrender.com/state/search", {
         params: {
           name: searchVal,
         },

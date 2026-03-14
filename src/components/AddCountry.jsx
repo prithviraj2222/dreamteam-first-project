@@ -8,7 +8,7 @@ function AddCountry() {
   const [countries, setCountries] = useState([]);
 
   const fetchData = async () => {
-    let data = await axios.get("http://localhost:3000/country");
+    let data = await axios.get("https://dreamteam-first-project-backend.onrender.com/country");  // http://localhost:3000
     setCountries(data.data);
   };
 
@@ -19,7 +19,7 @@ function AddCountry() {
 
     if (!(countries.some((countryName) => countryName.name === country.trim()))) {
       try {
-        await axios.post("http://localhost:3000/country", { country });
+        await axios.post("https://dreamteam-first-project-backend.onrender.com/country", { country });
         navigate("/country");
       } catch (error) {
         console.log(error);

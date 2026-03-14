@@ -20,17 +20,17 @@ function UpdateDetails() {
   const navigate = useNavigate();
 
   const fetchData = async () => {
-    let data = await axios.get(`http://localhost:3000/users/${id}`);
+    let data = await axios.get(`https://dreamteam-first-project-backend.onrender.com/users/${id}`);
     data = data.data[0];
     setDetails(data);
-    let countriesData = await axios.get("http://localhost:3000/country");
+    let countriesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/country");
     setCountry(countriesData.data.filter((d) => d.removed === "N"));
-    let statesData = await axios.get("http://localhost:3000/states");
+    let statesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/states");
     setStates(statesData.data.filter((d) => d.removed === "N"));
-    let citiesData = await axios.get("http://localhost:3000/cities");
+    let citiesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/cities");
     setCities(citiesData.data.filter((d) => d.removed === "N"));
     let cityData = await axios.get(
-      `http://localhost:3000/city/${data.city_master_id}`
+      `https://dreamteam-first-project-backend.onrender.com/city/${data.city_master_id}`
     );
     cityData = cityData.data[0];
     setUserCity(cityData);
@@ -63,7 +63,7 @@ function UpdateDetails() {
     e.preventDefault();
     if (window.confirm("Are you sure you want to upadate user details")) {
       try {
-        await axios.put(`http://localhost:3000/users/update/${id}`, details);
+        await axios.put(`https://dreamteam-first-project-backend.onrender.com/users/update/${id}`, details);
         navigate("/home");
       } catch (error) {
         console.log(error);

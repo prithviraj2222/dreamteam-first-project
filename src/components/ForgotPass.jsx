@@ -27,7 +27,7 @@ function ForgotPass() {
     try {
       setOtpLoading(true);
       setOtpMsg("Otp sending...");
-      await axios.post("http://localhost:3000/send-otp", { email });
+      await axios.post("https://dreamteam-first-project-backend.onrender.com/send-otp", { email });
       setOtpSend(true);
       setOtpMsg("Otp Send check you email");
     } catch (error) {
@@ -51,7 +51,7 @@ function ForgotPass() {
 
     try {
       setOtpMsg("Verifying OTP...");
-      await axios.post("http://localhost:3000/verify-otp", { email, otp });
+      await axios.post("https://dreamteam-first-project-backend.onrender.com/verify-otp", { email, otp });
       setOtpValidation(true);
       setOtpMsg("OTP verified");
     } catch (error) {

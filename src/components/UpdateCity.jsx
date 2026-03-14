@@ -17,18 +17,18 @@ function UpdateCity() {
   const navigate = useNavigate();
 
   const fetchData = async () => {
-    let citiesData = await axios.get("http://localhost:3000/cities");
+    let citiesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/cities");
     setCities(citiesData.data);
-    let data = await axios.get(`http://localhost:3000/city/${id}`);
+    let data = await axios.get(`https://dreamteam-first-project-backend.onrender.com/city/${id}`);
     data = data.data[0];
     setCity(data);
     setSelect(data.state_id);
-    let statesData = await axios.get("http://localhost:3000/states");
+    let statesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/states");
     setStates(statesData.data.filter((d) => d.removed === "N"));
     setCountryId(
       statesData.data.find((state) => state.id === data.state_id).country_id
     );
-    let countriesData = await axios.get("http://localhost:3000/country");
+    let countriesData = await axios.get("https://dreamteam-first-project-backend.onrender.com/country");
     setCountry(countriesData.data);
     setCountryStates(
       statesData.data.filter(
@@ -54,7 +54,7 @@ function UpdateCity() {
           alert("City Already Exitst !");
         } else {
           try {
-            await axios.put(`http://localhost:3000/city/${id}`, {
+            await axios.put(`https://dreamteam-first-project-backend.onrender.com/city/${id}`, {
               city,
               select,
             });

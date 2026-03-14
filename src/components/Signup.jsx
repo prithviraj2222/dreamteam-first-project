@@ -40,7 +40,7 @@ function Signup() {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:3000/user", {
+      const res = await axios.post("https://dreamteam-first-project-backend.onrender.com/user", {
         name,
         dob,
         address,
@@ -64,7 +64,7 @@ function Signup() {
     try {
       setOtpLoading(true);
       setOtpMsg("Otp sending...");
-      await axios.post("http://localhost:3000/send-otp", { email });
+      await axios.post("https://dreamteam-first-project-backend.onrender.com/send-otp", { email });
       setOtpSend(true);
       setOtpMsg("Otp Send check you email");
     } catch (error) {
@@ -88,7 +88,7 @@ function Signup() {
 
     try {
       setOtpMsg("Verifying OTP...");
-      await axios.post("http://localhost:3000/verify-otp", { email, otp });
+      await axios.post("https://dreamteam-first-project-backend.onrender.com/verify-otp", { email, otp });
       setOtpValidation(true);
       setOtpMsg("OTP verified");
     } catch (error) {
